@@ -266,14 +266,33 @@ def test_raw_vace_spec_preserves_unknown_fields(tmp_path: Path):
     assert job.parameters["future_parameter"] == "official-api-owned"
 
 
+def test_reference_to_video_defaults_to_wan27_r2v(tmp_path: Path):
+    job = load_video_job_spec(
+        spec_file=None,
+        prompt="character1 waves.",
+        media=None,
+        input_overrides={"reference_urls": ["https://example.com/ref.mp4"]},
+        parameters={"duration": 5, "audio": True},
+        model=None,
+        endpoint=None,
+        workspace_root=tmp_path,
+    )
+
+    payload = build_video_request_payload(job)
+
+    assert payload["model"] == "wan2.7-r2v"
+    assert payload["input"]["reference_urls"] == ["https://example.com/ref.mp4"]
+    assert payload["parameters"] == {"duration": 5, "audio": True}
+
+
 def test_advanced_spec_without_model_is_rejected(tmp_path: Path):
     with pytest.raises(InvalidVideoSpecError, match="model is required"):
         load_video_job_spec(
             spec_file=None,
-            prompt="character1 waves.",
+            prompt="Extend this video naturally.",
             media=None,
-            input_overrides={"reference_urls": ["https://example.com/ref.mp4"]},
-            parameters=None,
+            input_overrides={"function": "video_extension"},
+            parameters={"duration": 5},
             model=None,
             endpoint=None,
             workspace_root=tmp_path,

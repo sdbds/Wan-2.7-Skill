@@ -57,7 +57,7 @@ For video APIs, pass public HTTP/HTTPS URLs for:
 | Wan 2.7 image-to-video | `wan2.7-i2v` | `video-generation` | `input.media[]` |
 | Legacy first-frame image-to-video | `wan2.6-i2v`, `wan2.6-i2v-flash` | `video-generation` | `input.img_url` |
 | Legacy first/last-frame image-to-video | `wan2.2-kf2v-flash` | `image2video` | `input.first_frame_url`, `input.last_frame_url` |
-| Reference-to-video | `wan2.6-r2v`, `wan2.6-r2v-flash` | `video-generation` | `input.reference_urls[]` |
+| Reference-to-video | `wan2.7-r2v`, `wan2.6-r2v`, `wan2.6-r2v-flash` | `video-generation` | `input.reference_urls[]` |
 | Wan 2.7 video editing | `wan2.7-videoedit` | `video-generation` | `input.media[]` with one `video` and optional reference images |
 | VACE video editing | `wan2.1-vace-plus` | `video-generation` | `input.function` plus function-specific inputs |
 

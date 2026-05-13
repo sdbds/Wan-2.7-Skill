@@ -12,7 +12,7 @@ Use these as guidance for user education and prompt assembly. They are not persi
 | `video_i2v_first_frame` | user provides a first frame and wants motion | `wan2.7-i2v` |
 | `video_i2v_keyframes` | user provides first and last frames | `wan2.7-i2v` |
 | `video_i2v_continue` | user provides a first clip and wants continuation | `wan2.7-i2v` |
-| `video_reference_performance` | user wants character/object consistency from references | `wan2.6-r2v` |
+| `video_reference_performance` | user wants character/object consistency from references | `wan2.7-r2v` |
 | `video_vace_edit` | user wants to edit or extend an existing video | `wan2.7-videoedit` or `wan2.1-vace-plus` |
 
 ## General Video Prompt Rules

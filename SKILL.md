@@ -419,7 +419,7 @@ Use these routing defaults:
 
 - no reference media -> text-to-video with `wan2.7-t2v`
 - first-frame, first+last-frame, or first-clip continuation -> `wan2.7-i2v`
-- character/object reference media -> reference-to-video with `wan2.6-r2v` or `wan2.6-r2v-flash`
+- character/object reference media -> reference-to-video with `wan2.7-r2v`; use `wan2.6-r2v` or `wan2.6-r2v-flash` only as compatibility or lower-cost fallbacks
 - instruction-based editing of an existing video -> `wan2.7-videoedit`
 - older VACE local edit / repaint / extension / outpainting modes -> `wan2.1-vace-plus`
 
@@ -562,7 +562,7 @@ Default resolution order:
 - Reject `4K` for `wan2.7-image`; reject `4K` for image-to-image and sequential mode even on `wan2.7-image-pro`.
 - Reject unsupported parameters explicitly. Do not silently drop them.
 - If a parameter is missing, let the runner use conservative defaults rather than inventing extra behavior.
-- For video generation, accept `wan2.7-t2v`, `wan2.7-i2v`, `wan2.7-videoedit`, `wan2.6-t2v`, `wan2.6-r2v`, `wan2.6-r2v-flash`, legacy i2v, and VACE models through the video runner.
+- For video generation, accept `wan2.7-t2v`, `wan2.7-i2v`, `wan2.7-r2v`, `wan2.7-videoedit`, `wan2.6-t2v`, `wan2.6-r2v`, `wan2.6-r2v-flash`, legacy i2v, and VACE models through the video runner.
 - For `wan2.7-i2v`, require `input.media` with a supported first-frame / first+last / first-clip combination.
 - For `wan2.7-videoedit`, require exactly one `media` item of type `video` and allow up to three reference images.
 

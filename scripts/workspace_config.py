@@ -15,6 +15,7 @@ SUPPORTED_VIDEO_MODELS = {
     "wan2.5-t2v-preview",
     "wan2.6-t2v",
     "wan2.7-t2v",
+    "wan2.7-r2v",
     "wan2.7-i2v",
     "wan2.7-videoedit",
 }

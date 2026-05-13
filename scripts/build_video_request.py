@@ -59,7 +59,12 @@ SUPPORTED_INPUT_KEYS = {
 }
 
 MANAGED_VIDEO_MODES = {"t2v", "i2v", "videoedit"}
+REFERENCE_TO_VIDEO_MODE = "r2v"
 RAW_VIDEO_MODE = "raw"
+REFERENCE_TO_VIDEO_INPUT_HINTS = {
+    "reference_urls",
+    "reference_video_urls",
+}
 RAW_MODE_INPUT_HINTS = {
     "img_url",
     "first_frame_url",
@@ -319,7 +324,12 @@ def _infer_video_mode_name(model_hint: str | None, raw_input: dict[str, Any]) ->
             return "i2v"
         if "-t2v" in model_hint:
             return "t2v"
+        if "-r2v" in model_hint:
+            return REFERENCE_TO_VIDEO_MODE
         return RAW_VIDEO_MODE
+
+    if any(key in raw_input for key in REFERENCE_TO_VIDEO_INPUT_HINTS):
+        return REFERENCE_TO_VIDEO_MODE
 
     if any(key in raw_input for key in RAW_MODE_INPUT_HINTS):
         return RAW_VIDEO_MODE
@@ -339,6 +349,8 @@ def _default_model_for_mode(mode_name: str) -> str | None:
         return "wan2.7-i2v"
     if mode_name == "t2v":
         return "wan2.7-t2v"
+    if mode_name == REFERENCE_TO_VIDEO_MODE:
+        return "wan2.7-r2v"
     return None
 
 

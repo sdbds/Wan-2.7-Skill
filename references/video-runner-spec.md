@@ -14,7 +14,7 @@ Managed modes:
 
 Raw mode:
 
-- reference-to-video models such as `wan2.6-r2v`
+- reference-to-video defaults to `wan2.7-r2v`; `wan2.6-r2v` and `wan2.6-r2v-flash` remain compatibility or lower-cost fallbacks
 - VACE models such as `wan2.1-vace-plus`
 - legacy image-to-video models such as `wan2.6-i2v` and `wan2.2-kf2v-flash`
 - any explicit model that is not one of the managed models
@@ -26,6 +26,7 @@ Workspace video defaults are applied only to managed modes.
 - `defaults.video.t2v` applies only to text-to-video managed mode.
 - `defaults.video.i2v` applies only to `wan2.7-i2v`.
 - `defaults.video.videoedit` applies only to `wan2.7-videoedit`.
+- Reference-to-video may infer `wan2.7-r2v` when `reference_urls` or `reference_video_urls` are present and no model is explicit.
 - Raw mode never receives workspace video defaults.
 
 Reason: advanced API families have model-specific parameter matrices, and local defaults can silently create invalid or expensive requests.
