@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Wan 2.7 local runtime files
+api_key.txt
+outputs/
+wan2.7-image-demo.json
+wan2.7-video-demo.json
+*.key
+*.pem
+*.p12
+*.pfx
