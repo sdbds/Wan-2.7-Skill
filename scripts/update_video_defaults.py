@@ -13,7 +13,7 @@ from workspace_config import (
 )
 
 DEFAULT_VIDEO_KWARGS = {
-    "video_t2v_model": "wan2.6-t2v",
+    "video_t2v_model": "wan2.7-t2v",
     "video_t2v_size": "1280*720",
     "video_t2v_duration": 2,
     "video_t2v_prompt_extend": True,

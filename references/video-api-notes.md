@@ -53,7 +53,7 @@ For video APIs, pass public HTTP/HTTPS URLs for:
 
 | Family | Main model examples | Endpoint | Input shape |
 | --- | --- | --- | --- |
-| Text-to-video | `wan2.6-t2v`, `wan2.5-t2v-preview` | `video-generation` | `input.prompt`, optional `input.audio_url` |
+| Text-to-video | `wan2.7-t2v`, `wan2.6-t2v`, `wan2.5-t2v-preview` | `video-generation` | `input.prompt`, optional `input.audio_url` |
 | Wan 2.7 image-to-video | `wan2.7-i2v` | `video-generation` | `input.media[]` |
 | Legacy first-frame image-to-video | `wan2.6-i2v`, `wan2.6-i2v-flash` | `video-generation` | `input.img_url` |
 | Legacy first/last-frame image-to-video | `wan2.2-kf2v-flash` | `image2video` | `input.first_frame_url`, `input.last_frame_url` |
@@ -89,12 +89,12 @@ Parameters:
 
 ## Text-To-Video Notes
 
-Current recommended text-to-video family is `wan2.6-t2v`.
+Current recommended text-to-video family is `wan2.7-t2v`; keep `wan2.6-t2v` as a compatibility fallback when SDK or account constraints require it.
 
 Important parameters:
 
 - `size`: concrete resolution such as `1280*720` or `1920*1080`
-- `duration`: model-dependent, `wan2.6-t2v` supports integer seconds in `[2, 15]`
+- `duration`: model-dependent, `wan2.7-t2v` and `wan2.6-t2v` support integer seconds in `[2, 15]`
 - `prompt_extend`
 - `shot_type`: `single` or `multi`, only effective for Wan 2.6 when `prompt_extend=true`
 - `audio_url`: optional input field for models that support audio

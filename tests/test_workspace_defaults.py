@@ -157,7 +157,7 @@ def test_write_workspace_files_writes_config_and_api_key(tmp_path: Path):
     assert result["api_key_file"] == str(tmp_path / API_KEY_FILENAME)
     saved_config = json.loads((tmp_path / CONFIG_FILENAME).read_text(encoding="utf-8"))
     assert saved_config["defaults"]["t2i"]["size"] == "1024*1024"
-    assert saved_config["defaults"]["video"]["t2v"]["model"] == "wan2.6-t2v"
+    assert saved_config["defaults"]["video"]["t2v"]["model"] == "wan2.7-t2v"
     assert saved_config["defaults"]["video"]["t2v"]["size"] == "1280*720"
     assert saved_config["defaults"]["video"]["i2v"]["resolution"] == "720P"
     assert saved_config["defaults"]["video"]["videoedit"]["duration"] == 0
@@ -227,6 +227,7 @@ def test_init_workspace_config_script_writes_files(tmp_path: Path):
     saved_config = json.loads((tmp_path / CONFIG_FILENAME).read_text(encoding="utf-8"))
     assert saved_config["defaults"]["t2i"]["size"] == "1024*1024"
     assert saved_config["defaults"]["i2i"]["size"] == "1344*768"
+    assert saved_config["defaults"]["video"]["t2v"]["model"] == "wan2.7-t2v"
     assert saved_config["defaults"]["video"]["t2v"]["duration"] == 3
     assert saved_config["defaults"]["video"]["i2v"]["resolution"] == "1080P"
     assert saved_config["defaults"]["video"]["videoedit"]["audio_setting"] == "auto"
@@ -258,6 +259,7 @@ def test_update_video_defaults_script_preserves_image_defaults(tmp_path: Path):
     saved_config = json.loads(config_path.read_text(encoding="utf-8"))
     assert saved_config["defaults"]["t2i"]["size"] == "2K"
     assert saved_config["defaults"]["i2i"]["size"] == "1K"
+    assert saved_config["defaults"]["video"]["t2v"]["model"] == "wan2.7-t2v"
     assert saved_config["defaults"]["video"]["t2v"]["duration"] == 4
     assert saved_config["defaults"]["video"]["videoedit"]["audio_setting"] == "auto"
 
@@ -347,6 +349,7 @@ def test_update_video_defaults_reset_replaces_video_defaults(tmp_path: Path):
 
     assert result.returncode == 0, result.stderr
     saved_config = json.loads(config_path.read_text(encoding="utf-8"))
+    assert saved_config["defaults"]["video"]["t2v"]["model"] == "wan2.7-t2v"
     assert saved_config["defaults"]["video"]["t2v"]["size"] == "1280*720"
     assert saved_config["defaults"]["video"]["t2v"]["duration"] == 4
     assert saved_config["defaults"]["video"]["t2v"]["watermark"] is False

@@ -8,7 +8,7 @@ Use these as guidance for user education and prompt assembly. They are not persi
 
 | Task type | Use when | Typical model family |
 | --- | --- | --- |
-| `video_t2v_scene` | user wants video from text only | `wan2.6-t2v` |
+| `video_t2v_scene` | user wants video from text only | `wan2.7-t2v` |
 | `video_i2v_first_frame` | user provides a first frame and wants motion | `wan2.7-i2v` |
 | `video_i2v_keyframes` | user provides first and last frames | `wan2.7-i2v` |
 | `video_i2v_continue` | user provides a first clip and wants continuation | `wan2.7-i2v` |

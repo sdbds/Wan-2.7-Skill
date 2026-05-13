@@ -338,7 +338,7 @@ def _default_model_for_mode(mode_name: str) -> str | None:
     if mode_name == "i2v":
         return "wan2.7-i2v"
     if mode_name == "t2v":
-        return "wan2.6-t2v"
+        return "wan2.7-t2v"
     return None
 
 

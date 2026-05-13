@@ -14,6 +14,7 @@ SUPPORTED_MODELS = {"wan2.7-image", "wan2.7-image-pro"}
 SUPPORTED_VIDEO_MODELS = {
     "wan2.5-t2v-preview",
     "wan2.6-t2v",
+    "wan2.7-t2v",
     "wan2.7-i2v",
     "wan2.7-videoedit",
 }
@@ -97,7 +98,7 @@ def _normalize_positive_int(value: int, *, field_name: str) -> int:
 
 def build_video_defaults(
     *,
-    video_t2v_model: str = "wan2.6-t2v",
+    video_t2v_model: str = "wan2.7-t2v",
     video_t2v_size: str = "1280*720",
     video_t2v_duration: int = 2,
     video_t2v_prompt_extend: bool = True,
@@ -171,7 +172,7 @@ def build_workspace_config(
     i2i_size: str,
     i2i_n: int,
     i2i_watermark: bool,
-    video_t2v_model: str = "wan2.6-t2v",
+    video_t2v_model: str = "wan2.7-t2v",
     video_t2v_size: str = "1280*720",
     video_t2v_duration: int = 2,
     video_t2v_prompt_extend: bool = True,

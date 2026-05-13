@@ -161,7 +161,7 @@ Quick mode should stay biased toward low-cost defaults:
 - `model = wan2.7-image`
 - `n = 1`
 - watermark off
-- video text-to-video default: `wan2.6-t2v`, `size = 1280*720`, `duration = 2`, `watermark = false`
+- video text-to-video default: `wan2.7-t2v`, `size = 1280*720`, `duration = 2`, `watermark = false`
 - video image-to-video default: `wan2.7-i2v`, `resolution = 720P`, `duration = 5`, `watermark = false`
 - video editing default: `wan2.7-videoedit`, `resolution = 720P`, `duration = 0`, `audio_setting = origin`
 

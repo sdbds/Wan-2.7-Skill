@@ -63,7 +63,7 @@ def _parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--video-t2v-model",
-        default="wan2.6-t2v",
+        default="wan2.7-t2v",
         help="Default text-to-video model.",
     )
     parser.add_argument(

@@ -209,7 +209,7 @@ Recommended shape:
     },
     "video": {
       "t2v": {
-        "model": "wan2.6-t2v",
+        "model": "wan2.7-t2v",
         "size": "1280*720",
         "duration": 2,
         "prompt_extend": true,
@@ -263,7 +263,7 @@ For first-use initialization, write concrete pixel sizes into this file.
   - primary usage pattern
 - For video defaults in `快速推荐`, do not ask a separate long questionnaire.
 - Use conservative defaults:
-  - text-to-video: `wan2.6-t2v`, `1280*720`, `2s`, `prompt_extend=true`, `watermark=false`
+  - text-to-video: `wan2.7-t2v`, `1280*720`, `2s`, `prompt_extend=true`, `watermark=false`
   - image-to-video: `wan2.7-i2v`, `720P`, `5s`, `prompt_extend=true`, `watermark=false`
   - video editing: `wan2.7-videoedit`, `720P`, `duration=0`, `audio_setting=origin`, `watermark=false`
 - When the user gives `resolution tier + aspect ratio`, convert that pair to a concrete pixel `size` before writing config.
@@ -295,7 +295,7 @@ python /absolute/path/to/wan2.7-image-demo/scripts/init_workspace_config.py \
   --i2i-size 1024*1024 \
   --i2i-n 1 \
   --i2i-watermark false \
-  --video-t2v-model wan2.6-t2v \
+  --video-t2v-model wan2.7-t2v \
   --video-t2v-size 1280*720 \
   --video-t2v-duration 2 \
   --video-t2v-prompt-extend true \
@@ -417,7 +417,7 @@ When the user asks for video generation or editing, route to the video runner an
 
 Use these routing defaults:
 
-- no reference media -> text-to-video with `wan2.6-t2v`
+- no reference media -> text-to-video with `wan2.7-t2v`
 - first-frame, first+last-frame, or first-clip continuation -> `wan2.7-i2v`
 - character/object reference media -> reference-to-video with `wan2.6-r2v` or `wan2.6-r2v-flash`
 - instruction-based editing of an existing video -> `wan2.7-videoedit`
@@ -436,7 +436,7 @@ Simple text-to-video:
 
 ```bash
 python /absolute/path/to/wan2.7-image-demo/scripts/run_wan27_video.py \
-  --model wan2.6-t2v \
+  --model wan2.7-t2v \
   --prompt "A slow cinematic product shot of a transparent glass cup on wet black stone, single continuous camera push-in, soft rim light" \
   --size 1280*720 \
   --duration 5 \
@@ -562,7 +562,7 @@ Default resolution order:
 - Reject `4K` for `wan2.7-image`; reject `4K` for image-to-image and sequential mode even on `wan2.7-image-pro`.
 - Reject unsupported parameters explicitly. Do not silently drop them.
 - If a parameter is missing, let the runner use conservative defaults rather than inventing extra behavior.
-- For video generation, accept `wan2.7-i2v`, `wan2.7-videoedit`, `wan2.6-t2v`, `wan2.6-r2v`, `wan2.6-r2v-flash`, legacy i2v, and VACE models through the video runner.
+- For video generation, accept `wan2.7-t2v`, `wan2.7-i2v`, `wan2.7-videoedit`, `wan2.6-t2v`, `wan2.6-r2v`, `wan2.6-r2v-flash`, legacy i2v, and VACE models through the video runner.
 - For `wan2.7-i2v`, require `input.media` with a supported first-frame / first+last / first-clip combination.
 - For `wan2.7-videoedit`, require exactly one `media` item of type `video` and allow up to three reference images.
 

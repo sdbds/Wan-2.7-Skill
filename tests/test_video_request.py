@@ -77,7 +77,7 @@ def test_t2v_defaults_when_no_media(tmp_path: Path):
 
     payload = build_video_request_payload(job)
 
-    assert payload["model"] == "wan2.6-t2v"
+    assert payload["model"] == "wan2.7-t2v"
     assert payload["input"]["prompt"] == "A slow cinematic product shot."
     assert payload["parameters"]["size"] == "1280*720"
 
